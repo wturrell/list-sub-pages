@@ -4,7 +4,7 @@ Tags: subpages, list subpages,list subpages widget,list subpages shortcode.
 Requires at least: 3.2
 Tested up to: 3.7.1
 License: GPL
-Stable: 1.0
+Stable tag: 1.0
 
 This is a WordPress plugin for listing your subpages(childpages) for the current page which is being displayed.
  
@@ -15,23 +15,19 @@ This plugin creates a "Sub Pages" Widget and also a dynamically generated "sub_p
 
 The plugin provides a shortcode generator page(Option Page) in which dynamic shortcode is generated simultaneously when you select your options from the options field. The selected values are passed as a shortcode parameters and everytime you visit the page you can generate the shortcode you want.
 
-=> Below are the options for displaying subpage if exists for that particular parent page.
+Below are the options for displaying subpage if exists for that particular parent page.
  
-	== Title
+* Title
+* Displaying Sub Pages using a Sorting Order option.
 
-	== Displaying Sub Pages using a Sorting Order option.
+Below are the options to add effect in the parent pages display when subpages are not available to display.
 
-=> Below are the options to add effect in the parent pages display when subpages are not available to display.
+* Displaying parent page as per Sorting Criteria 
+* Page Exclusion, to not show the title of specific pages. 
+* Depth Level, 
+* Parent Sort Order, displaying parent pages title link using a Sorting Order option.
 
-	== Displaying parent page as per Sorting Criteria 
-
-	== Page Exclusion, to not show the title of specific pages. 
-
-	== Depth Level, 
-
-	== Parent Sort Order, displaying parent pages title link using a Sorting Order option.
-
-=>You can Copy the Dynamic Shortcode and paste where you want to display subpages or parent pages list.
+You can Copy the Dynamic Shortcode and paste where you want to display subpages or parent pages list.
 
 Dynamic Shortcode:	
 e.g: [sub_page title='Pages' sort_order='DESC' sort_by_values='ID' exclude_page_id='13' depth='2' sort_order_parent='DESC' ]
