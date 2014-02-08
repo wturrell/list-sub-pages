@@ -4,6 +4,7 @@ Tags: subpages, list subpages,list subpages widget,list subpages shortcode.
 Requires at least: 3.2
 Tested up to: 3.7.1
 License: GPL
+Stable: 1.0
 
 This is a WordPress plugin for listing your subpages(childpages) for the current page which is being displayed.
  
