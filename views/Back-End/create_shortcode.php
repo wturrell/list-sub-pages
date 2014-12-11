@@ -17,6 +17,7 @@ function ls_add_script()
 	global 	$ls_plugin_version;
 
 	if( !wp_script_is( 'jquery' ) )
+	if( !wp_script_is( 'jquery' ) )
 	{
 		wp_enqueue_script('jquery');
 	}
@@ -210,7 +211,7 @@ function ls_options_page() {
  *
  *  @return             ARRAY
  *  @var				$atts datatype is ARRAY
- *  @author             HG
+ *  @author             HG / William Turrell
 
  */
 function ls_shortcode($atts)
@@ -218,11 +219,13 @@ function ls_shortcode($atts)
 	global $post;
 	extract(shortcode_atts(array(
 					'title' => '',
+					'page_id' => '',             // new: allow you to customise the start page
 					'sort_order'=>'',
 					'sort_by_values'=>'',
 					'exclude_page_id'=>'',
 					'depth'=>'',
-					'sort_order_parent'=>''
+					'sort_order_parent'=>'',
+					'hide_if_no_children' => '',
 				), $atts));
 
 	
@@ -238,14 +241,16 @@ function ls_shortcode($atts)
 	 
 	$sort_order_parent=empty($sort_order_parent) ? 'ASC' : $sort_order_parent;
 	 
+	$page_id= empty($page_id) ? $post->ID : $page_id;
+
+	$hide_if_no_children = ($hide_if_no_children === 1) ? true : false;
+
 	$ls_str = '';
 	$ls_str .= '<div class="ls_container">';
 	$ls_str .= '<h3 class="widget_title">'.$title.'</h3>' ;
 	 
 	// WIDGET CODE GOES HERE
 	 
-	$page_id= $post->ID;
-	
 	$args = array(
 			'order' => $sort_order,
 			'post_parent' => $page_id,
@@ -263,25 +268,36 @@ function ls_shortcode($atts)
    	    		$ls_str .= '<li><a href="'.$attachment->guid.'">'.$attachment->post_title.'</a></li>';	
    	    	}
    	}
-   	else 
-   	{	$args = array(
-   				'depth'=> $depth,
-   	    			'title_li' => '',
-   				'echo' => 0,
-   				'sort_order'=>$sort_order_parent,
-   				'sort_column' => $sort_by_values,
-   				'post_type'    => 'page',
-   				'post_status'  => 'publish',
-   	 	                'exclude'=>$exclude_page_id,
-   			);
-   				$pages = wp_list_pages($args);
-   				
-   				$ls_str .= $pages;		
-   	}
-   	
-   	$ls_str .= '</ul>';
-	$ls_str .= '</div>';
-	
+   	else
+   	{
+	    if ( $hide_if_no_children ) {
+
+			// do nothing
+		    $ls_str = '';
+
+	    } else {
+
+		    $args = array(
+			    'depth'=> $depth,
+			    'title_li' => '',
+			    'echo' => 0,
+			    'sort_order'=>$sort_order_parent,
+			    'sort_column' => $sort_by_values,
+			    'post_type'    => 'page',
+			    'post_status'  => 'publish',
+			    'exclude'=>$exclude_page_id,
+		    );
+		    $pages = wp_list_pages($args);
+
+	    }
+
+    }
+
+	if ( ! empty( $ls_str ) ) {
+		$ls_str .= '</ul>';
+		$ls_str .= '</div>';
+	}
+
 	return $ls_str;
    }
    
