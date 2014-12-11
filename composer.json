@@ -1,0 +1,9 @@
+{
+    "name": "wturrell/list-sub-pages",
+    "description": "Fork of WordPress list-sub-pages plugin",
+    "license": "GPL-2.0+",
+    "type": "wordpress-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
