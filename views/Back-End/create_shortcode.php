@@ -263,9 +263,10 @@ function ls_shortcode($atts)
    	$ls_str .= '<ul class="ls_page_list">';
    	if($attachments)
    	{
+	    // 'attachments' is a bit of a misleading name - these are the actual sub pages
 		foreach($attachments as $attachment)
    	    	{
-   	    		$ls_str .= '<li><a href="'.$attachment->guid.'">'.$attachment->post_title.'</a></li>';	
+   	    		$ls_str .= '<li><a href="'.get_permalink($attachment->ID).'">'.$attachment->post_title.'</a></li>';
    	    	}
    	}
    	else
