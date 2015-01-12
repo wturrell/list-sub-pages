@@ -266,7 +266,19 @@ function ls_shortcode($atts)
 	    // 'attachments' is a bit of a misleading name - these are the actual sub pages
 		foreach($attachments as $attachment)
    	    	{
-   	    		$ls_str .= '<li><a href="'.get_permalink($attachment->ID).'">'.$attachment->post_title.'</a></li>';
+		        $class = 'page-'.$attachment->post_name;
+
+		        $pagename = get_query_var( 'pagename' );
+
+		        if ($pagename == $attachment->post_name) {
+			        $class .= ' current-page';
+		        }
+
+		        $ls_str .= sprintf( '<li class="%s"><a href="%s">%s</a></li>',
+			        $class,
+			        get_permalink( $attachment->ID ),
+			        $attachment->post_title
+		        );
    	    	}
    	}
    	else

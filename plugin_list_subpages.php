@@ -323,17 +323,17 @@ function widget($args, $instance)
     	 {	
     	   $args = array(
     			   'depth'=> $depth,
-			   'title_li' => '',
+				   'title_li' => '',
     			   'echo' => 1,
     			   'sort_order'=>$sort_order_parent,
-			   'sort_column' => $sort_by_values,
+				   'sort_column' => $sort_by_values,
     			   'post_type'    => 'page',
     			   'post_status'  => 'publish',
-    	 	           'exclude'=>$exclude_page_id,
+				   'exclude'=>$exclude_page_id,
     					);
     			   $pages=wp_list_pages($args);
     				
-    			   print_r($pages);		
+    			   print_r($pages);
     	 }?>
    </ul>
 	
