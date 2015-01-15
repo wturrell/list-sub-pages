@@ -266,7 +266,7 @@ function ls_shortcode($atts)
 	    // 'attachments' is a bit of a misleading name - these are the actual sub pages
 		foreach($attachments as $attachment)
    	    	{
-		        if ( class_exists( Groups_Post_Access ) && ! Groups_Post_Access::user_can_read_post( $attachment->ID, get_current_user_id() ) ) {
+		        if ( class_exists( 'Groups_Post_Access' ) && ! Groups_Post_Access::user_can_read_post( $attachment->ID, get_current_user_id() ) ) {
 			        // skip any pages they're not allowed to view
 			        continue;
 		        }
