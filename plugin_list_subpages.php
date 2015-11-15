@@ -89,7 +89,7 @@ class ls_sub_pages extends WP_Widget
 				);
 		
 		parent::__construct(
-				'extension-slug'. '-widget' . 'ls_sub_pages',
+				'ls_sub_pages',
 				__('Sub Pages Widget','subpage'),
 				$widget_ops
 		);
