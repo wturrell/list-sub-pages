@@ -2,12 +2,12 @@
 Contributors: Weblineindia
 Tags: subpages, list subpages,list subpages widget,list subpages shortcode.
 Requires at least: 3.2
-Tested up to: 3.7.1
+Tested up to: 5.3
 License: GPL
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 This is a WordPress plugin for listing your subpages(childpages) for the current page which is being displayed.
- 
+
 
 == Description ==
 
@@ -16,20 +16,20 @@ This plugin creates a "Sub Pages" Widget and also a dynamically generated "sub_p
 The plugin provides a shortcode generator page(Option Page) in which dynamic shortcode is generated simultaneously when you select your options from the options field. The selected values are passed as a shortcode parameters and everytime you visit the page you can generate the shortcode you want.
 
 Below are the options for displaying subpage if exists for that particular parent page.
- 
+
 * Title
 * Displaying Sub Pages using a Sorting Order option.
 
 Below are the options to add effect in the parent pages display when subpages are not available to display.
 
-* Displaying parent page as per Sorting Criteria 
-* Page Exclusion, to not show the title of specific pages. 
-* Depth Level, 
+* Displaying parent page as per Sorting Criteria
+* Page Exclusion, to not show the title of specific pages.
+* Depth Level,
 * Parent Sort Order, displaying parent pages title link using a Sorting Order option.
 
 You can Copy the Dynamic Shortcode and paste where you want to display subpages or parent pages list.
 
-Dynamic Shortcode:	
+Dynamic Shortcode:
 e.g: [sub_page title='Pages' sort_order='DESC' sort_by_values='ID' exclude_page_id='13' depth='2' sort_order_parent='DESC' ]
 
 Note: This plugin will list the subpages for the current page being displayed, but if their is no childpage(subpage) for the current displaying page then it will display list of all the parent pages. If you don't want to display some of the parent pages then also their is a feature in the plugin.
@@ -47,3 +47,15 @@ Note: This plugin will list the subpages for the current page being displayed, b
 3. Spanish
 4. Chinese
 
+== Changelog ==
+
+= 1.0.1 =
+
+Release Date: January 03, 2020
+
+* Fix: Minor other bug fixes.
+* Fix: Checked compatibility with WordPress version 5.3.2
+
+= 1.0 =
+
+* Initial release

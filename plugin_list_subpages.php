@@ -2,9 +2,9 @@
 /*
 Plugin Name:List Sub Pages
 Plugin URI: http://www.weblineindia.com/
-Description: Creates a widget and  shortcode with different functionalities for displaying the sub pages or parent pages.
+Description: *** FORK WITH BUGFIXES. DO NOT UPDATE *** Creates a widget and shortcode with different functionalities for displaying the sub pages or parent pages.
 Author: Weblineindia
-Version: 1.0
+Version: 1.0.1
 Author URI: http://www.weblineindia.com/
 */
 
@@ -84,10 +84,10 @@ class ls_sub_pages extends WP_Widget
 {
 	public function __construct()
 	{
-		
+        // create the widget
 		$widget_ops = array('classname' => 'ls_sub_pages','description' => __('Displays the list of subpages for that particular parent page else will display the list of parent pages.','subpage')
 				);
-		
+
 		parent::__construct(
 				'ls_sub_pages',
 				__('Sub Pages Widget','subpage'),
@@ -294,7 +294,7 @@ function widget($args, $instance)
 	}
 	
 
-	$depth=empty($instance['depth']) ? '1' : apply_filters('widget_depth', $instance['depth']);
+    $depth= trim($instance['depth']) == '' ? '1' : apply_filters('widget_depth', $instance['depth']);
 	
  	$sort_order_parent=empty($instance['sort_order_parent']) ? 'ASC' : apply_filters('widget_depth', $instance['sort_order_parent']);
  	

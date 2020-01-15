@@ -237,7 +237,7 @@ function ls_shortcode($atts)
 	 
 	$exclude_page_id=empty($exclude_page_id) ? ' ' : $exclude_page_id;
 	 
-	$depth=empty($depth) ? '1' : $depth;
+	$depth = trim($depth) == '' ? '1' : $depth;
 	 
 	$sort_order_parent=empty($sort_order_parent) ? 'ASC' : $sort_order_parent;
 	 
@@ -250,7 +250,9 @@ function ls_shortcode($atts)
 	$ls_str .= '<h3 class="widget_title">'.$title.'</h3>' ;
 	 
 	// WIDGET CODE GOES HERE
-	 
+
+	$page_id= !empty( $post->ID ) ? $post->ID : '';
+
 	$args = array(
 			'order' => $sort_order,
 			'post_parent' => $page_id,
